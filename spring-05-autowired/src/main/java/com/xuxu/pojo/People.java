@@ -1,7 +1,18 @@
 package com.xuxu.pojo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.annotation.Resource;
+
 public class People {
+    // 如果加了required = false 则表示该成员变量可以为空
+    // 如果既不能通过name，也不能通过id确定自动注解的类，则需要Qualifier指定id
+    @Autowired
+    @Qualifier(value="cat111")
     public Cat cat;
+    // Resource(name="cat111")
+    @Resource
     private Dog dog;
     private String name;
 
